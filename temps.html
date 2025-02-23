@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compte à Rebours</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fef3fb; /* Fond rose clair */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .countdown {
+            display: flex;
+            justify-content: space-between; /* Espacement entre les deux blocs */
+            align-items: center;
+            width: 100%;
+            max-width: 1000px; /* Largeur maximale de la page */
+        }
+        .block {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            box-sizing: border-box; /* Inclure les paddings dans la largeur totale */
+        }
+        .image {
+            width: 100%;  /* S'adapte à la largeur du bloc */
+            height: auto; /* Garder les proportions de l'image */
+            border-radius: 10px;
+        }
+        h2 {
+            font-size: 2rem;
+            color: #333;
+        }
+        .time {
+            font-size: 2.5rem;
+            color: #ff63b0;
+            margin: 20px 0;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap; /* Pour éviter que le texte ne dépasse en cas de petit espace */
+        }
+        .time div {
+            font-weight: bold;
+            min-width: 80px; /* Taille minimale pour éviter un trop grand débordement */
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            background-color: #ff63b0;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: #ff3385;
+            transform: scale(1.1);
+        }
+        .block-left {
+            width: 65%; /* Agrandir le bloc de gauche */
+            margin-right: 50px; /* Espacement pour ne pas toucher au bloc de droite */
+        }
+        .block-right {
+            width: 30%; /* Réduire la taille du bloc de droite */
+            overflow: hidden; /* Empêcher le débordement du contenu */
+            text-overflow: ellipsis; /* Si le texte est trop long, ajouter des points de suspension */
+        }
+    </style>
+</head>
+<body>
+
+<div class="countdown">
+    <div class="block block-left">
+        <img src="nous.jpeg" alt="Image" class="image">
+    </div>
+    <div class="block block-right">
+        <h2>Temps depuis qu'on est ensemble :</h2>
+        <div id="timer" class="time">
+            <div id="days"></div>
+            <div id="hours"></div>
+            <div id="minutes"></div>
+            <div id="seconds"></div>
+        </div>
+        <button onclick="window.location.href = 'chap1.html';">Suivant</button>
+    </div>
+</div>
+
+<script>
+    const startDate = new Date('2024-12-15'); // Début décembre
+
+    function updateTimer() {
+        const today = new Date(); // Date d'aujourd'hui
+        const diff = today - startDate; // Calculer la différence en millisecondes
+
+        // Calculer les jours, heures, minutes et secondes
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        // Mettre à jour les éléments HTML
+        document.getElementById('days').textContent = `${days} jours`;
+        document.getElementById('hours').textContent = `${hours} heures`;
+        document.getElementById('minutes').textContent = `${minutes} minutes`;
+        document.getElementById('seconds').textContent = `${seconds} secondes`;
+    }
+
+    // Appeler updateTimer chaque seconde pour mettre à jour le compte à rebours
+    setInterval(updateTimer, 1000);
+
+    // Appel initial pour afficher directement les valeurs
+    updateTimer();
+</script>
+
+</body>
+</html>

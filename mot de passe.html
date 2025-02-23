@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte Cadeau</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fef3fb; /* Fond rose clair */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 900px;
+            padding: 20px;
+        }
+
+        .left {
+            width: 40%;
+        }
+
+        .right {
+            width: 50%;
+            padding: 20px;
+        }
+
+        .right h2 {
+            font-size: 1.8rem;
+            color: #333;
+            text-align: center;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="password"] {
+            width: 150px;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 10px;
+            border: 2px solid #ff63b0; /* Bordure rose */
+            border-radius: 10px;
+            outline: none;
+            margin: 20px 0;
+            transition: border-color 0.3s;
+        }
+
+        input[type="password"]:focus {
+            border-color: #ff3385; /* Bordure rose plus foncé au focus */
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .grid button {
+            padding: 20px;
+            font-size: 1.8rem;
+            border: 2px solid #ff63b0;
+            border-radius: 10px;
+            background-color: #fff;
+            color: #ff63b0;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .grid button:hover {
+            background-color: #ff63b0;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            background-color: #ff63b0;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff3385;
+            transform: scale(1.1);
+        }
+
+        /* Ajout de styles pour les alertes */
+        .alert {
+            color: #ff3385;
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="left">
+        <img src="moi.jpeg" alt="Image" />
+    </div>
+    <div class="right">
+        <h2>Entres nôtre mot de passe :</h2>
+        <form id="password-form">
+            <input type="password" id="password" placeholder="Mot de passe" maxlength="5" />
+            <div class="grid">
+                <button type="button" onclick="addToPassword(1)">1</button>
+                <button type="button" onclick="addToPassword(2)">2</button>
+                <button type="button" onclick="addToPassword(3)">3</button>
+                <button type="button" onclick="addToPassword(4)">4</button>
+                <button type="button" onclick="addToPassword(5)">5</button>
+                <button type="button" onclick="addToPassword(6)">6</button>
+                <button type="button" onclick="addToPassword(7)">7</button>
+                <button type="button" onclick="addToPassword(8)">8</button>
+                <button type="button" onclick="addToPassword(9)">9</button>
+            </div>
+            <button type="button" onclick="validatePassword()">Valider</button>
+            <div id="alert" class="alert"></div>
+        </form>
+    </div>
+</div>
+
+<script>
+    let currentPassword = '';
+    const alertDiv = document.getElementById('alert');
+
+    function addToPassword(num) {
+        if (currentPassword.length < 5) {
+            currentPassword += num;
+            document.getElementById('password').value = currentPassword;
+        }
+    }
+
+    function validatePassword() {
+        if (currentPassword === '1411') {
+            window.location.href = "temps.html";
+        } else {
+            alertDiv.textContent = 'Mot de passe incorrect, essayez à nouveau.';
+            currentPassword = '';
+            document.getElementById('password').value = '';
+        }
+    }
+</script>
+
+</body>
+</html>

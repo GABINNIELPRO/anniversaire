@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapitre de l'Histoire</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fef3fb; /* Fond rose clair */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1000px; /* Largeur maximale de la page */
+        }
+        .image {
+            width: 45%; /* Largeur de l'image */
+            height: auto;
+            border-radius: 10px;
+        }
+        .classeur {
+            width: 45%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .classeur-header {
+            background-color: #ff63b0;
+            color: white;
+            padding: 15px;
+            font-size: 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .classeur-header:hover {
+            background-color: #ff3385;
+        }
+        .classeur-content {
+            display: none;
+            margin-top: 20px;
+        }
+        .classeur-content p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            color: #333;
+        }
+        .next-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            background-color: #ff63b0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .next-button:hover {
+            background-color: #ff3385;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Bloc Image -->
+    <img src="nous3.jpeg" alt="Image de l'Histoire" class="image">
+
+    <!-- Bloc Classeur -->
+    <div class="classeur">
+        <div class="classeur-header" onclick="toggleChapter()">Chapitre 3 : Notre séjour en amoureux</div>
+        <div class="classeur-content" id="chapterContent">
+            <p>
+                Notre séjour qu'on a passé au havre était incroyable, j'ai vécu une semaine magique avec toi j'ai tout adoré et j'ai appris a mieux te connaitre et surtout mon amour n'a fait que se décupler pour toi
+            </p>
+        </div>
+        <button class="next-button" onclick="window.location.href = 'chap4.html';">Chapitre suivant</button>
+    </div>
+</div>
+
+<script>
+    function toggleChapter() {
+        const chapterContent = document.getElementById('chapterContent');
+        // Alterner l'affichage du contenu du chapitre
+        if (chapterContent.style.display === 'none' || chapterContent.style.display === '') {
+            chapterContent.style.display = 'block'; // Afficher le chapitre
+        } else {
+            chapterContent.style.display = 'none'; // Masquer le chapitre
+        }
+    }
+</script>
+
+</body>
+</html>
