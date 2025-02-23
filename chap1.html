@@ -15,6 +15,20 @@
             align-items: center;
             height: 100vh;
         }
+        /* Style pour le titre, identique au style des éléments de la page */
+        .page-title {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ff63b0;
+            color: white;
+            padding: 15px;
+            font-size: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
         .container {
             display: flex;
             justify-content: space-between;
@@ -73,6 +87,9 @@
 </head>
 <body>
 
+<!-- Titre ajouté en haut de la page avec le même CSS que les autres éléments -->
+<h1 class="page-title">Notre histoire</h1>
+
 <div class="container">
     <!-- Bloc Image -->
     <img src="nous1.jpeg" alt="Image de l'Histoire" class="image">
@@ -82,7 +99,6 @@
         <div class="classeur-header" onclick="toggleChapter()">Chapitre 1 : Le début de notre histoire</div>
         <div class="classeur-content" id="chapterContent">
             <p>On s'est rencontrés pendant un live de Foued, mdrrr. (C'est trop la honte ! On racontera pas cette histoire.) Au final, on a appris à se connaître et tu es tombée amoureuse de moi.</p>
-
         </div>
         <button class="next-button" onclick="window.location.href = 'chap2.html';">Chapitre suivant</button>
     </div>
